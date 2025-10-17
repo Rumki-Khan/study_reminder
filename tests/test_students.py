@@ -1,5 +1,14 @@
-import unittest
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from study_reminders.students import Students
+
+
+
+
+
+import unittest
 
 class TestStudents(unittest.TestCase):
     def setUp(self):
@@ -17,4 +26,8 @@ class TestStudents(unittest.TestCase):
     def test_get_students(self):
         self.manager.add_student("Charlie", "charlie@example.com", "Physics", "07:30")
         students = self.manager.get_students()
+        print("Students:", students)  # Debug print
         self.assertEqual(students[0]['name'], "Charlie")
+        
+
+

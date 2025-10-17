@@ -7,25 +7,21 @@ class StudentsManager:
 
     def __init__(self, file_path="students.json"):
         self.file_path = file_path
-        self.students = self.load_students()
+        self.students = []
+        self.load_students()
 
     def load_students(self):
         """Load student data from a JSON file or return defaults."""
         try:
-            with open(self.file_path, "r") as file:
-                return json.load(file)
-        except FileNotFoundError:
-            # Default dummy data
-            return [
-                {"name": "Alice", "email": "alice@example.com", "course": "Python Scripting", "preferred_time": "08:00 AM"},
-                {"name": "Bob", "email": "bob@example.com", "course": "Algorithms", "preferred_time": "09:00 AM"},
-                {"name": "Charlie", "email": "charlie@example.com", "course": "Databases", "preferred_time": "07:30 AM"}
-            ]
+             with open(self.file_path, "r") as f:
+                 self.students = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+                self.students = []
 
     def save_students(self):
         """Save student data to the JSON file."""
-        with open(self.file_path, "w") as file:
-            json.dump(self.students, file, indent=4)
+        with open(self.file_path, "w") as f:
+            json.dump(self.students, f, indent=4)
 
     def add_student(self, name, email, course, preferred_time="08:00 AM"):
         """Add a student and save to the JSON file."""
