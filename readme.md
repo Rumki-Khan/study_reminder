@@ -34,11 +34,7 @@ python test.py
 ### 1. Clone the repository
 
 bash
-<<<<<<< HEAD
 git clone  (https://github.com/Rumki-Khan/study_reminder)
-=======
-git clone (https://github.com/Rumki-Khan/study_reminder)
->>>>>>> 4ed1f1f66040b7804a61aec80d90d061367c1663
 cd study_reminders
 
 ----
